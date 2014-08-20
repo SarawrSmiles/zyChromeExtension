@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name":"zyChromeExtension",
+    "description":"",
+    "version":"1.0",
+    
+    "content_scripts": [
+        {
+            "matches": ["http://zyweb.zyante.com/", "https://zybooks.zyante.com/", "http://zybooks.com/"],
+            "js": ["zyChromeExtension.js"]
+        } 
+    ],
+
+    "permissions": [
+        "http://zyweb.zyante.com/",
+        "https://zybooks.zyante.com/",
+        "http://zybooks.com/"
+    ]
+}
