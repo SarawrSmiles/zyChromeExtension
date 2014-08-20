@@ -24,7 +24,17 @@ function displayHypeDocumentNames() {
 }
 
 function displayContentResourceIds() {
-
+    var contentResources = toArray(document.querySelectorAll('[contentid]'));
+    contentResources.forEach(function(element) {
+        var contentResourceId = element.getAttribute('contentid');
+        console.log(contentResourceId);
+        var idDiv = document.createElement('div');
+        idDiv.innerHTML = contentResourceId;
+        idDiv.style.fontSize = "12px"; 
+        idDiv.style.color = "#cc6600"; 
+        idDiv.style.fontFamily = "Comic Sans MS"; 
+        element.appendChild(idDiv);
+    });
 }
 
 function toArray(nodeList) {
