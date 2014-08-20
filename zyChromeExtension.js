@@ -17,7 +17,9 @@ function displayHypeDocumentNames() {
     var hypeAnimationDivs = toArray(document.querySelectorAll('.hypeAnimation > div'));
     hypeAnimationDivs.forEach(function(element) {
         var documentName = element.getAttribute('hype_documentname');  
-        console.log(documentName);
+        var nameDiv = document.createElement('div');
+        nameDiv.innerHTML = documentName;
+        element.parentNode.appendChild(nameDiv);
     });
 }
 
@@ -34,3 +36,8 @@ function toArray(nodeList) {
 
     return array;
 }
+
+window.setTimeout(function() {
+    hashChanged();
+}, 1000);
+
