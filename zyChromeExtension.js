@@ -1,4 +1,3 @@
-
 window.onhashchange = hashChanged;
 
 function hashChanged() {
@@ -11,6 +10,7 @@ function hashChanged() {
             displayContentResourceIds();
         }, 1000);
     }
+
 }
 
 function displayHypeDocumentNames() {
@@ -18,6 +18,7 @@ function displayHypeDocumentNames() {
     hypeAnimationDivs.forEach(function(element) {
         var documentName = element.getAttribute('hype_documentname');  
         var nameDiv = document.createElement('div');
+        nameDiv.className = "visibleID";
         nameDiv.innerHTML = documentName;
         element.parentNode.appendChild(nameDiv);
     });
@@ -30,11 +31,21 @@ function displayContentResourceIds() {
         console.log(contentResourceId);
         var idDiv = document.createElement('div');
         idDiv.innerHTML = contentResourceId;
+        idDiv.className = "visibleID";
         idDiv.style.fontSize = "12px"; 
         idDiv.style.color = "#cc6600"; 
         idDiv.style.fontFamily = "Comic Sans MS"; 
         element.appendChild(idDiv);
     });
+
+    var visibleIDs = document.getElementsByClassName("visibleID");
+    for (var i = 0; i < visibleIDs.length; i++) {
+        visibleIDs[i].onclick = function() {
+            for (var j = 0; j < visibleIDs.length; j++) {
+                visibleIDs[j].style.display = "none";   
+            }
+        };
+    }
 }
 
 function toArray(nodeList) {
@@ -49,5 +60,7 @@ function toArray(nodeList) {
 
 window.setTimeout(function() {
     hashChanged();
+
 }, 1000);
+
 
