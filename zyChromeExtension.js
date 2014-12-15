@@ -38,7 +38,7 @@ function displayContentResourceIds() {
         element.appendChild(idDiv);
     });
 
-    visibleIDs = document.getElementsByClassName("visibleID");
+    var visibleIDs = document.getElementsByClassName("visibleID");
     for (var i = 0; i < visibleIDs.length; i++) {
         visibleIDs[i].onclick = function() {
             for (var j = 0; j < visibleIDs.length; j++) {
